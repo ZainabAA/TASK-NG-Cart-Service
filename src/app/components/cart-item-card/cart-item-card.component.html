@@ -1,0 +1,19 @@
+<div class="product-card">
+  <img [src]="cartItem.product.image" [alt]="cartItem.product.name" />
+  <h3>{{ cartItem.product.name }}</h3>
+  <p>{{ cartItem.product.description }}</p>
+  <p>
+    <strong>KWD {{ cartItem.quantity * cartItem.product.price }}</strong>
+  </p>
+
+  <div class="actions">
+
+    <button (click)="DeleteItem()">Delete</button>
+
+    <div class="quantity">
+      <button [disabled]="cartItem.product.stock < cartItem.quantity+1" (click)="UpdateQuantity(1)">+</button>
+      <p>  {{cartItem.quantity}} </p>
+      <button (click)="UpdateQuantity(-1)">-</button>
+    </div>
+  </div>
+</div>
